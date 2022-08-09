@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 
-const Home: NextPage = () => {
+const Room: NextPage = () => {
   return (
     <div className="h-screen bg-primary">
       <Head>
@@ -11,10 +11,10 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <h1 className="text-secondary-primary">Everybody is weird</h1>
+        <h1 className="text-secondary-primary">Room</h1>
       </main>
     </div>
   );
 };
 
-export default Home;
+export default Room;
