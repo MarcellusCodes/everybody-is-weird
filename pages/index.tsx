@@ -4,8 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { Layout, Navbar } from "../src/components/index";
 import { motion } from "framer-motion";
+import { useForm } from "react-hook-form";
 
 const Home: NextPage = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
   return (
     <>
       <Head>
@@ -43,6 +51,47 @@ const Home: NextPage = () => {
             </button>
           </motion.li>
         </Navbar>
+        <header className="flex flex-col items-center">
+          <h1 className="text-6xl font-primary text-slate-50">
+            Everybody is weird
+          </h1>
+          <div className="py-2" />
+          <p className="text-xl font-secondary text-slate-50 opacity-80">
+            rule your weirdness
+          </p>
+          <div className="py-4" />
+          <div className="max-w-[300px]">
+            <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+              <motion.input
+                initial={{ scale: 1 }}
+                whileFocus={{ scale: 1.1, outline: "2px solid #f8fafc" }}
+                transition={{
+                  type: "spring",
+                  duration: 1,
+                  bounce: 0.75,
+                }}
+                className="bg-slate-50 hover:bg-slate-200 transition-colors duration-100 focus:bg-slate-50  focus:outline-none w-full px-6 py-2 rounded-md"
+                {...register("nickName", { required: true })}
+              />
+              {errors.exampleRequired && <span>This field is required</span>}
+              <div className="py-2" />
+              <motion.button
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.1 }}
+                transition={{
+                  type: "spring",
+                  duration: 1,
+                  bounce: 0.75,
+                }}
+                className="bg-slate-50  w-full text-primary font-primary text-xl  py-2 rounded-md"
+                type="submit"
+              >
+                🔫 Play
+              </motion.button>
+            </form>
+          </div>
+        </header>
+        <main></main>
       </Layout>
     </>
   );
