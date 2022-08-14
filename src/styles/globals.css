@@ -6,3 +6,20 @@ body {
   background-color: #1e2961 !important;
   overflow-x: hidden !important;
 }
+
+.btn {
+  @apply bg-slate-50;
+  @apply w-full;
+  @apply text-primary;
+  @apply font-primary;
+  @apply text-lg;
+  @apply py-2;
+  @apply px-6;
+  @apply rounded-md;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    @apply text-xl;
+  }
+}

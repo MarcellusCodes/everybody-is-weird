@@ -2,9 +2,10 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { Layout, Navbar } from "../src/components/index";
+import { Layout, Navbar, Button } from "../src/components/index";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
+import { ButtonMotion, SpringTransition } from "../src/constants/index";
 
 const Home: NextPage = () => {
   const {
@@ -23,30 +24,26 @@ const Home: NextPage = () => {
       <Layout>
         <Navbar>
           <motion.li
-            initial={{ scale: 1 }}
-            whileHover={{ scale: 1.1 }}
+            initial="initial"
+            whileHover="hover"
             transition={{
-              type: "spring",
-              duration: 1,
-              bounce: 0.75,
+              ...SpringTransition,
             }}
+            variants={ButtonMotion}
           >
             <Link href="/rooms" passHref>
-              <a className="bg-slate-50 text-primary font-primary text-xl px-6 py-2 rounded-md inline-flex">
-                📦 All Rooms
-              </a>
+              <a className="btn inline-flex">📦 All Rooms</a>
             </Link>
           </motion.li>
           <motion.li
-            initial={{ scale: 1 }}
-            whileHover={{ scale: 1.1 }}
+            initial="initial"
+            whileHover="hover"
             transition={{
-              type: "spring",
-              duration: 1,
-              bounce: 0.75,
+              ...SpringTransition,
             }}
+            variants={ButtonMotion}
           >
-            <button className="bg-slate-50 text-primary font-primary text-xl px-6 py-2 rounded-md">
+            <button type="button" className="btn">
               🔨 Create Lobby
             </button>
           </motion.li>
@@ -63,31 +60,18 @@ const Home: NextPage = () => {
           <div className="max-w-[300px]">
             <form onSubmit={handleSubmit(onSubmit)} className="w-full">
               <motion.input
-                initial={{ scale: 1 }}
+                initial="initial"
                 whileFocus={{ scale: 1.1, outline: "2px solid #f8fafc" }}
                 transition={{
-                  type: "spring",
-                  duration: 1,
-                  bounce: 0.75,
+                  ...SpringTransition,
                 }}
+                variants={ButtonMotion}
                 className="bg-slate-50 hover:bg-slate-200 transition-colors duration-100 focus:bg-slate-50  focus:outline-none w-full px-6 py-2 rounded-md"
                 {...register("nickName", { required: true })}
               />
               {errors.exampleRequired && <span>This field is required</span>}
               <div className="py-2" />
-              <motion.button
-                initial={{ scale: 1 }}
-                whileHover={{ scale: 1.1 }}
-                transition={{
-                  type: "spring",
-                  duration: 1,
-                  bounce: 0.75,
-                }}
-                className="bg-slate-50  w-full text-primary font-primary text-xl  py-2 rounded-md"
-                type="submit"
-              >
-                🔫 Play
-              </motion.button>
+              <Button type="button">🔫 Play</Button>
             </form>
           </div>
         </header>
