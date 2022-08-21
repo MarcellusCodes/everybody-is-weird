@@ -89,7 +89,7 @@ const Room: NextPage = () => {
                     />
 
                     <Button classNames="btn-dark" type="submit">
-                      🔫 Message
+                      💬 Message
                     </Button>
                   </form>
                 </div>
@@ -97,7 +97,51 @@ const Room: NextPage = () => {
             </div>
 
             <div className="w-full h-[50px] bg-slate-50 "></div>
-            <div className="w-full h-[50px] bg-green-600"></div>
+            <div className="w-full h-auto">
+              <div className="flex flex-col gap-4">
+                <Box>
+                  <Heading>Players</Heading>
+                  <ul className="flex flex-col items-start space-y-2">
+                    <li className="flex flex-row space-x-2">
+                      <div className="bg-green-500 w-6 h-6 shrink-0"></div>
+                      <p className=" text-primary font-secondary text-md  rounded-tr-md rounded-br-md rounded-bl-md ">
+                        Marcellus
+                      </p>
+                    </li>
+                    <li className="flex flex-row space-x-2">
+                      <div className="bg-orange-500 w-6 h-6 shrink-0"></div>
+                      <p className=" text-primary font-secondary text-md  rounded-tr-md rounded-br-md rounded-bl-md ">
+                        Sehriban
+                      </p>
+                    </li>
+                  </ul>
+                </Box>
+                <Box>
+                  <Heading>Question</Heading>
+
+                  <p className=" bg-tertiary-primary text-primary font-secondary text-md rounded-md p-2">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Omnis, totam.?
+                  </p>
+                  <div className="h-[2px] bg-primary w-full" />
+                  <div className="w-full">
+                    <form
+                      onSubmit={onSubmit}
+                      className="flex flex-col w-full space-y-2"
+                    >
+                      <Input
+                        dark={true}
+                        register={register("message", { required: true })}
+                      />
+
+                      <Button classNames="btn-dark" type="submit">
+                        ✍ Answer
+                      </Button>
+                    </form>
+                  </div>
+                </Box>
+              </div>
+            </div>
           </div>
         </main>
       </Layout>
