@@ -4,18 +4,24 @@ import { ButtonMotion, SpringTransition } from "../constants/index";
 
 interface InputProps {
   register: () => void;
+  dark?: boolean;
 }
 
-const Input: React.FC<InputProps> = ({ register }) => {
+const Input: React.FC<InputProps> = ({ dark = false, register }) => {
   return (
     <motion.input
       initial="initial"
-      whileFocus={{ scale: 1.1, outline: "2px solid #f8fafc" }}
+      whileFocus={{
+        scale: 1.1,
+        outline: dark ? "2px solid #e2e8f0" : "2px solid #f1f5f9",
+      }}
       transition={{
         ...SpringTransition,
       }}
       variants={ButtonMotion}
-      className="bg-slate-50 hover:bg-slate-200 transition-colors duration-100 focus:bg-slate-50 focus:outline-none w-full px-6 py-2 rounded-md"
+      className={`${
+        dark ? "input-dark" : "input"
+      } transition-colors duration-100 focus:outline-none w-full px-6 py-2 rounded-md`}
       {...register}
     />
   );

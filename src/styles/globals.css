@@ -18,8 +18,35 @@ body {
   @apply rounded-md;
 }
 
+.btn-dark {
+  @apply bg-primary;
+  @apply text-slate-50;
+}
+
 @media (min-width: 768px) {
   .btn {
     @apply text-xl;
   }
+}
+
+.input {
+  @apply bg-slate-50;
+}
+
+.input:hover {
+  @apply bg-slate-200;
+}
+
+.input:focus {
+  @apply bg-slate-50;
+}
+
+.input-dark {
+  @apply bg-slate-200;
+}
+.input-dark:hover {
+  @apply bg-slate-300;
+}
+.input-dark:focus {
+  @apply bg-slate-200;
 }

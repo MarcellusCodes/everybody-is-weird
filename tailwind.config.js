@@ -21,7 +21,7 @@ module.exports = {
     },
     fontFamily: {
       primary: ["Mouse Memoirs", "sans-serif"],
-      secondary: ["Roboto Slab", "serif"],
+      secondary: ["Archivo Narrow", "sans-serif"],
     },
   },
   plugins: [],
